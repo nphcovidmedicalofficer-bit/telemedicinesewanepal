@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <meta
+    name="description"
+    content="Doctor Registration - TELE MEDICINE SEWA NEPAL"
+  />
+
+  <title>Doctor Registration | TELE MEDICINE SEWA NEPAL</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            medical: {
+              50: "#f0fdfa",
+              100: "#ccfbf1",
+              200: "#99f6e4",
+              500: "#14b8a6",
+              600: "#0d9488",
+              700: "#0f766e",
+              800: "#115e59",
+              900: "#134e4a"
+            }
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system,
+        BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    .page-background {
+      background:
+        radial-gradient(
+          circle at 15% 10%,
+          rgba(20, 184, 166, 0.10),
+          transparent 30%
+        ),
+        radial-gradient(
+          circle at 90% 25%,
+          rgba(59, 130, 246, 0.08),
+          transparent 30%
+        ),
+        linear-gradient(
+          135deg,
+          #f0fdfa 0%,
+          #ffffff 50%,
+          #eff6ff 100%
+        );
+    }
+
+    .glass {
+      background: rgba(255, 255, 255, 0.90);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+  </style>
+</head>
+
+<body class="bg-slate-50 text-slate-800">
+
+  <!-- =========================================================
+       HEADER
+  ========================================================== -->
+  <header
+    class="sticky top-0 z-50 border-b border-slate-200/80 bg-white/90 backdrop-blur-lg"
+  >
+    <div
+      class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8"
+    >
+
+      <!-- Logo -->
+      <a href="index.html" class="flex items-center gap-3">
+
+        <div
+          class="flex h-11 w-11 items-center justify-center rounded-xl bg-medical-600 text-white shadow-lg shadow-medical-600/20"
+        >
+          <i data-lucide="heart-pulse" class="h-6 w-6"></i>
+        </div>
+
+        <div>
+          <div
+            class="text-base font-extrabold tracking-tight text-slate-900 sm:text-lg"
+          >
+            TELE MEDICINE
+          </div>
+
+          <div
+            class="text-xs font-semibold tracking-[0.18em] text-medical-700"
+          >
+            SEWA NEPAL
+          </div>
+        </div>
+
+      </a>
+
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden items-center gap-7 md:flex">
+
+        <a
+          href="index.html"
+          class="text-sm font-medium text-slate-600 transition hover:text-medical-700"
+        >
+          Home
+        </a>
+
+        <a
+          href="index.html#how-it-works"
+          class="text-sm font-medium text-slate-600 transition hover:text-medical-700"
+        >
+          How It Works
+        </a>
+
+        <a
+          href="index.html#doctors"
+          class="text-sm font-medium text-slate-600 transition hover:text-medical-700"
+        >
+          Our Doctors
+        </a>
+
+        <a
+          href="#doctor-registration"
+          class="font-semibold text-medical-700"
+        >
+          Doctor Registration
+        </a>
+
+      </nav>
+
+
+      <!-- WhatsApp -->
+      <a
+        href="https://wa.me/9779812145254"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="hidden items-center gap-2 rounded-full bg-green-600 px-4 py-2.5 text-sm font-bold text-white shadow-md transition hover:bg-green-700 sm:flex"
+      >
+        <i data-lucide="message-circle" class="h-4 w-4"></i>
+        WhatsApp
+      </a>
+
+
+      <!-- Mobile Menu Button -->
+      <button
+        id="menuBtn"
+        type="button"
+        class="rounded-lg p-2 text-slate-700 hover:bg-slate-100 md:hidden"
+        aria-label="Open menu"
+      >
+        <i data-lucide="menu" class="h-6 w-6"></i>
+      </button>
+
+    </div>
+
+
+    <!-- Mobile Navigation -->
+    <div
+      id="mobileMenu"
+      class="hidden border-t border-slate-100 bg-white px-4 pb-4 md:hidden"
+    >
+
+      <nav class="flex flex-col gap-1 pt-3">
+
+        <a
+          href="index.html"
+          class="rounded-lg px-3 py-3 text-sm font-medium hover:bg-slate-50"
+        >
+          Home
+        </a>
+
+        <a
+          href="index.html#how-it-works"
+          class="rounded-lg px-3 py-3 text-sm font-medium hover:bg-slate-50"
+        >
+          How It Works
+        </a>
+
+        <a
+          href="index.html#doctors"
+          class="rounded-lg px-3 py-3 text-sm font-medium hover:bg-slate-50"
+        >
+          Our Doctors
+        </a>
+
+        <a
+          href="#doctor-registration"
+          class="rounded-lg bg-medical-50 px-3 py-3 text-sm font-bold text-medical-700"
+        >
+          Doctor Registration
+        </a>
+
+        <a
+          href="https://wa.me/9779812145254"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mt-2 flex items-center justify-center gap-2 rounded-xl bg-green-600 px-4 py-3 text-sm font-bold text-white"
+        >
+          <i data-lucide="message-circle" class="h-4 w-4"></i>
+          Chat on WhatsApp
+        </a>
+
+      </nav>
+
+    </div>
+  </header>
+
+
+  <!-- =========================================================
+       MAIN
+  ========================================================== -->
+  <main id="doctor-registration">
+
+    <!-- =======================================================
+         PAGE HERO
+    ======================================================== -->
+    <section class="page-background">
+
+      <div
+        class="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20 lg:px-8"
+      >
+
+        <div class="mx-auto max-w-3xl text-center">
+
+          <div
+            class="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-medical-100 text-medical-700 shadow-sm"
+          >
+            <i data-lucide="stethoscope" class="h-8 w-8"></i>
+          </div>
+
+          <p
+            class="mt-6 text-sm font-bold uppercase tracking-[0.2em] text-medical-700"
+          >
+            Join Our Medical Network
+          </p>
+
+          <h1
+            class="mt-3 text-4xl font-black tracking-tight text-slate-900 sm:text-5xl"
+          >
+            Doctor Registration
+          </h1>
+
+          <p
+            class="mx-auto mt-5 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg"
+          >
+            Register with TELE MEDICINE SEWA NEPAL and make your
+            professional medical services accessible to patients
+            through online consultation.
+          </p>
+
+        </div>
+
+
+        <!-- ===================================================
+             REGISTRATION FORM
+        ==================================================== -->
+        <div class="mx-auto mt-12 max-w-3xl">
+
+          <div
+            class="glass overflow-hidden rounded-3xl border border-white shadow-2xl"
+          >
+
+            <!-- Form Header -->
+            <div
+              class="bg-gradient-to-r from-medical-800 to-medical-900 px-6 py-8 text-white sm:px-10"
+            >
+
+              <div class="flex items-start gap-4">
+
+                <div
+                  class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white/10"
+                >
+                  <i
+                    data-lucide="clipboard-pen-line"
+                    class="h-6 w-6"
+                  ></i>
+                </div>
+
+                <div>
+
+                  <h2
+                    class="text-xl font-extrabold sm:text-2xl"
+                  >
+                    Professional Registration Form
+                  </h2>
+
+                  <p
+                    class="mt-2 text-sm leading-6 text-medical-100"
+                  >
+                    Please provide accurate professional information.
+                    Your submitted details will be sent to our
+                    registration team through WhatsApp.
+                  </p>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <!-- Form -->
+            <form
+              id="doctorForm"
+              class="space-y-6 bg-white p-6 sm:p-10"
+            >
+
+              <!-- Full Name -->
+              <div>
+
+                <label
+                  for="fullName"
+                  class="mb-2 block text-sm font-bold text-slate-800"
+                >
+                  Full Name
+                  <span class="text-red-500">*</span>
+                </label>
+
+                <div class="relative">
+
+                  <div
+                    class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4 text-slate-400"
+                  >
+                    <i data-lucide="user-round" class="h-5 w-5"></i>
+                  </div>
+
+                  <input
+                    type="text"
+                    id="fullName"
+                    name="fullName"
+                    required
+                    autocomplete="name"
+                    placeholder="e.g. Dr. Nihar Kumar Das"
+                    class="w-full rounded-xl border border-slate-300 bg-white py-3.5 pl-12 pr-4 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-medical-600 focus:ring-4 focus:ring-medical-100"
+                  />
+
+                </div>
+
+              </div>
+
+
+              <!-- NMC Registration Number -->
+              <div>
+
+                <label
+                  for="nmcNumber"
+                  class="mb-2 block text-sm font-bold text-slate-800"
+                >
+                  NMC Registration Number
+                  <span class="text-red-500">*</span>
+                </label>
+
+                <div class="relative">
+
+                  <div
+                    class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4 text-slate-400"
+                  >
+                    <i data-lucide="badge-check" class="h-5 w-5"></i>
+                  </div>
+
+                  <input
+                    type="text"
+                    id="nmcNumber"
+                    name="nmcNumber"
+                    required
+                    placeholder="e.g. 23961"
+                    class="w-full rounded-xl border border-slate-300 bg-white py-3.5 pl-12 pr-4 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-medical-600 focus:ring-4 focus:ring-medical-100"
+                  />
+
+                </div>
+
+                <p class="mt-2 text-xs leading-5 text-slate-500">
+                  Enter your valid Nepal Medical Council (NMC)
+                  registration number.
+                </p>
+
+              </div>
+
+
+              <!-- Medical Specialization -->
+              <div>
+
+                <label
+                  for="specialization"
+                  class="mb-2 block text-sm font-bold text-slate-800"
+                >
+                  Medical Specialization
+                  <span class="text-red-500">*</span>
+                </label>
+
+                <div class="relative">
+
+                  <div
+                    class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4 text-slate-400"
+                  >
+                    <i data-lucide="stethoscope" class="h-5 w-5"></i>
+                  </div>
+
+                  <input
+                    type="text"
+                    id="specialization"
+                    name="specialization"
+                    required
+                    placeholder="e.g. General Physician, Internal Medicine, Orthopedic Surgeon"
+                    class="w-full rounded-xl border border-slate-300 bg-white py-3.5 pl-12 pr-4 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-medical-600 focus:ring-4 focus:ring-medical-100"
+                  />
+
+                </div>
+
+              </div>
+
+
+              <!-- Mobile Number -->
+              <div>
+
+                <label
+                  for="mobile"
+                  class="mb-2 block text-sm font-bold text-slate-800"
+                >
+                  Mobile Number
+                  <span class="text-red-500">*</span>
+                </label>
+
+                <div class="flex">
+
+                  <div
+                    class="flex items-center rounded-l-xl border border-r-0 border-slate-300 bg-slate-50 px-4 text-sm font-bold text-slate-600"
+                  >
+                    +977
+                  </div>
+
+                  <input
+                    type="tel"
+                    id="mobile"
+                    name="mobile"
+                    required
+                    inputmode="numeric"
+                    autocomplete="tel"
+                    pattern="[0-9]{10}"
+                    maxlength="10"
+                    placeholder="98XXXXXXXX"
+                    class="w-full rounded-r-xl border border-slate-300 bg-white px-4 py-3.5 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-medical-600 focus:ring-4 focus:ring-medical-100"
+                  />
+
+                </div>
+
+                <p class="mt-2 text-xs leading-5 text-slate-500">
+                  Enter your 10-digit Nepal mobile number.
+                </p>
+
+              </div>
+
+
+              <!-- Information Notice -->
+              <div
+                class="rounded-2xl border border-blue-200 bg-blue-50 p-4"
+              >
+
+                <div class="flex items-start gap-3">
+
+                  <i
+                    data-lucide="info"
+                    class="mt-0.5 h-5 w-5 shrink-0 text-blue-600"
+                  ></i>
+
+                  <p
+                    class="text-sm leading-6 text-blue-900"
+                  >
+                    After clicking <strong>Send Registration via WhatsApp</strong>,
+                    WhatsApp will open with your registration details
+                    automatically prepared for TELE MEDICINE SEWA NEPAL.
+                    Please review the information before sending.
+                  </p>
+
+                </div>
+
+              </div>
+
+
+              <!-- Submit Button -->
+              <button
+                type="submit"
+                class="flex w-full items-center justify-center gap-3 rounded-xl bg-green-600 px-6 py-4 text-base font-extrabold text-white shadow-lg shadow-green-600/20 transition hover:bg-green-700 focus:outline-none focus:ring-4 focus:ring-green-200"
+              >
+
+                <i
+                  data-lucide="send"
+                  class="h-5 w-5"
+                ></i>
+
+                Send Registration via WhatsApp
+
+              </button>
+
+
+              <!-- WhatsApp Number -->
+              <div class="text-center">
+
+                <p class="text-xs text-slate-500">
+                  Registration will be sent to
+                </p>
+
+                <p
+                  class="mt-1 font-extrabold text-slate-800"
+                >
+                  WhatsApp: +977 9812145254
+                </p>
+
+              </div>
+
+            </form>
+
+          </div>
+
+
+          <!-- Trust Notice -->
+          <div
+            class="mt-6 flex items-start gap-3 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm"
+          >
+
+            <div
+              class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-medical-100 text-medical-700"
+            >
+              <i
+                data-lucide="shield-check"
+                class="h-5 w-5"
+              ></i>
+            </div>
+
+            <div>
+
+              <h3
+                class="font-bold text-slate-900"
+              >
+                Professional Verification
+              </h3>
+
+              <p
+                class="mt-1 text-sm leading-6 text-slate-600"
+              >
+                Registration information may be reviewed and
+                verified by TELE MEDICINE SEWA NEPAL before a
+                doctor profile is published on the platform.
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- =========================================================
+       EMERGENCY WARNING FOOTER
+  ========================================================== -->
+  <footer
+    class="border-t border-red-200 bg-red-50"
+  >
+
+    <div
+      class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8"
+    >
+
+      <div
+        class="flex flex-col gap-5 md:flex-row md:items-center md:justify-between"
+      >
+
+        <div class="flex items-start gap-4">
+
+          <div
+            class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-red-100 text-red-700"
+          >
+            <i
+              data-lucide="triangle-alert"
+              class="h-6 w-6"
+            ></i>
+          </div>
+
+          <div>
+
+            <h3
+              class="font-extrabold text-red-900"
+            >
+              Medical Emergency?
+            </h3>
+
+            <p
+              class="mt-1 max-w-3xl text-sm leading-6 text-red-800"
+            >
+              Telemedicine is not a substitute for emergency
+              medical care. If you or someone around you is
+              experiencing a serious or life-threatening medical
+              emergency, seek immediate emergency medical
+              assistance or go to the nearest hospital.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- Footer Bottom -->
+      <div
+        class="mt-8 border-t border-red-200 pt-5 text-center text-xs text-red-700 sm:flex sm:items-center sm:justify-between"
+      >
+
+        <p>
+          © 2026 TELE MEDICINE SEWA NEPAL. All rights reserved.
+        </p>
+
+        <p class="mt-2 sm:mt-0">
+          Online healthcare services in Nepal
+        </p>
+
+      </div>
+
+    </div>
+  </footer>
+
+
+  <!-- =========================================================
+       JAVASCRIPT
+  ========================================================== -->
+  <script>
+
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+
+    // ---------------------------------------------------------
+    // Mobile Menu
+    // ---------------------------------------------------------
+    const menuBtn = document.getElementById("menuBtn");
+    const mobileMenu = document.getElementById("mobileMenu");
+
+    menuBtn.addEventListener("click", () => {
+
+      mobileMenu.classList.toggle("hidden");
+
+      if (mobileMenu.classList.contains("hidden")) {
+
+        menuBtn.innerHTML =
+          '<i data-lucide="menu" class="h-6 w-6"></i>';
+
+      } else {
+
+        menuBtn.innerHTML =
+          '<i data-lucide="x" class="h-6 w-6"></i>';
+
+      }
+
+      lucide.createIcons();
+
+    });
+
+
+    // ---------------------------------------------------------
+    // Close mobile menu after clicking a link
+    // ---------------------------------------------------------
+    document
+      .querySelectorAll("#mobileMenu a")
+      .forEach((link) => {
+
+        link.addEventListener("click", () => {
+
+          mobileMenu.classList.add("hidden");
+
+          menuBtn.innerHTML =
+            '<i data-lucide="menu" class="h-6 w-6"></i>';
+
+          lucide.createIcons();
+
+        });
+
+      });
+
+
+    // ---------------------------------------------------------
+    // Doctor Registration -> WhatsApp
+    // ---------------------------------------------------------
+    const doctorForm = document.getElementById("doctorForm");
+
+    doctorForm.addEventListener("submit", function (event) {
+
+      event.preventDefault();
+
+      const fullName =
+        document.getElementById("fullName").value.trim();
+
+      const nmcNumber =
+        document.getElementById("nmcNumber").value.trim();
+
+      const specialization =
+        document.getElementById("specialization").value.trim();
+
+      const mobile =
+        document.getElementById("mobile").value.trim();
+
+
+      // Validate Nepal mobile number
+      if (!/^[0-9]{10}$/.test(mobile)) {
+
+        alert(
+          "Please enter a valid 10-digit Nepal mobile number."
+        );
+
+        document.getElementById("mobile").focus();
+
+        return;
+      }
+
+
+      // Create WhatsApp message
+      const message =
+`🏥 *TELE MEDICINE SEWA NEPAL*
+
+*DOCTOR REGISTRATION REQUEST*
+
+👨‍⚕️ *Full Name:*
+${fullName}
+
+🪪 *NMC Registration Number:*
+${nmcNumber}
+
+🩺 *Medical Specialization:*
+${specialization}
+
+📱 *Mobile Number:*
++977 ${mobile}
+
+I would like to register as a doctor with TELE MEDICINE SEWA NEPAL.
+
+Please contact me regarding the registration and verification process.`;
+
+
+      // WhatsApp destination
+      const whatsappNumber = "9779812145254";
+
+      const whatsappURL =
+        "https://wa.me/" +
+        whatsappNumber +
+        "?text=" +
+        encodeURIComponent(message);
+
+
+      // Open WhatsApp
+      window.open(
+        whatsappURL,
+        "_blank",
+        "noopener,noreferrer"
+      );
+
+    });
+
+  </script>
+
+</body>
+</html>
