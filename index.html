@@ -1,0 +1,1435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="TELE MEDICINE SEWA NEPAL - Online video consultation with registered medical professionals in Nepal."
+  />
+  <title>TELE MEDICINE SEWA NEPAL | Online Doctor Consultation</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            medical: {
+              50: "#f0fdfa",
+              100: "#ccfbf1",
+              200: "#99f6e4",
+              500: "#14b8a6",
+              600: "#0d9488",
+              700: "#0f766e",
+              800: "#115e59",
+              900: "#134e4a"
+            }
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system,
+        BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    .hero-pattern {
+      background:
+        radial-gradient(
+          circle at 15% 20%,
+          rgba(20, 184, 166, 0.12),
+          transparent 30%
+        ),
+        radial-gradient(
+          circle at 85% 30%,
+          rgba(59, 130, 246, 0.10),
+          transparent 30%
+        ),
+        linear-gradient(
+          135deg,
+          #f0fdfa 0%,
+          #ffffff 55%,
+          #eff6ff 100%
+        );
+    }
+
+    .glass {
+      background: rgba(255, 255, 255, 0.84);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+
+    .card-hover {
+      transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+    }
+
+    .card-hover:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(15, 118, 110, 0.10);
+      border-color: rgba(20, 184, 166, 0.35);
+    }
+
+    .doctor-avatar {
+      background:
+        linear-gradient(
+          135deg,
+          rgba(20, 184, 166, 0.15),
+          rgba(59, 130, 246, 0.12)
+        );
+    }
+  </style>
+</head>
+
+<body class="bg-slate-50 text-slate-800">
+
+  <!-- =========================================================
+       HEADER
+  ========================================================== -->
+  <header
+    class="sticky top-0 z-50 border-b border-slate-200/80 bg-white/90 backdrop-blur-lg"
+  >
+    <div
+      class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8"
+    >
+
+      <!-- Logo -->
+      <a href="#home" class="flex items-center gap-3">
+        <div
+          class="flex h-11 w-11 items-center justify-center rounded-xl bg-medical-600 text-white shadow-lg shadow-medical-600/20"
+        >
+          <i data-lucide="heart-pulse" class="h-6 w-6"></i>
+        </div>
+
+        <div>
+          <div
+            class="text-base font-extrabold tracking-tight text-slate-900 sm:text-lg"
+          >
+            TELE MEDICINE
+          </div>
+
+          <div
+            class="text-xs font-semibold tracking-[0.18em] text-medical-700"
+          >
+            SEWA NEPAL
+          </div>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden items-center gap-7 md:flex">
+        <a
+          href="#home"
+          class="text-sm font-medium text-slate-600 transition hover:text-medical-700"
+        >
+          Home
+        </a>
+
+        <a
+          href="#how-it-works"
+          class="text-sm font-medium text-slate-600 transition hover:text-medical-700"
+        >
+          How It Works
+        </a>
+
+        <a
+          href="#doctors"
+          class="text-sm font-medium text-slate-600 transition hover:text-medical-700"
+        >
+          Our Doctors
+        </a>
+
+        <a
+          href="#contact"
+          class="text-sm font-medium text-slate-600 transition hover:text-medical-700"
+        >
+          Contact
+        </a>
+      </nav>
+
+      <!-- WhatsApp Desktop -->
+      <a
+        href="https://wa.me/9779812145254"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="hidden items-center gap-2 rounded-full bg-green-600 px-4 py-2.5 text-sm font-bold text-white shadow-md transition hover:bg-green-700 sm:flex"
+      >
+        <i data-lucide="message-circle" class="h-4 w-4"></i>
+        WhatsApp
+      </a>
+
+      <!-- Mobile Menu -->
+      <button
+        id="menuBtn"
+        class="rounded-lg p-2 text-slate-700 hover:bg-slate-100 md:hidden"
+        aria-label="Open menu"
+      >
+        <i data-lucide="menu" class="h-6 w-6"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Navigation -->
+    <div
+      id="mobileMenu"
+      class="hidden border-t border-slate-100 bg-white px-4 pb-4 md:hidden"
+    >
+      <nav class="flex flex-col gap-1 pt-3">
+
+        <a
+          href="#home"
+          class="rounded-lg px-3 py-3 text-sm font-medium hover:bg-slate-50"
+        >
+          Home
+        </a>
+
+        <a
+          href="#how-it-works"
+          class="rounded-lg px-3 py-3 text-sm font-medium hover:bg-slate-50"
+        >
+          How It Works
+        </a>
+
+        <a
+          href="#doctors"
+          class="rounded-lg px-3 py-3 text-sm font-medium hover:bg-slate-50"
+        >
+          Our Doctors
+        </a>
+
+        <a
+          href="#contact"
+          class="rounded-lg px-3 py-3 text-sm font-medium hover:bg-slate-50"
+        >
+          Contact
+        </a>
+
+        <a
+          href="https://wa.me/9779812145254"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mt-2 flex items-center justify-center gap-2 rounded-xl bg-green-600 px-4 py-3 text-sm font-bold text-white"
+        >
+          <i data-lucide="message-circle" class="h-4 w-4"></i>
+          Chat on WhatsApp
+        </a>
+      </nav>
+    </div>
+  </header>
+
+
+  <!-- =========================================================
+       MAIN
+  ========================================================== -->
+  <main id="home">
+
+    <!-- =======================================================
+         HERO
+    ======================================================== -->
+    <section class="hero-pattern overflow-hidden">
+      <div
+        class="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-28"
+      >
+
+        <div
+          class="grid items-center gap-12 lg:grid-cols-2 lg:gap-16"
+        >
+
+          <!-- Hero Content -->
+          <div>
+
+            <div
+              class="mb-5 inline-flex items-center gap-2 rounded-full border border-medical-200 bg-white/80 px-4 py-2 text-sm font-semibold text-medical-800 shadow-sm"
+            >
+              <span
+                class="flex h-2 w-2 rounded-full bg-green-500"
+              ></span>
+              Online Healthcare Services in Nepal
+            </div>
+
+            <h1
+              class="max-w-3xl text-4xl font-black leading-tight tracking-tight text-slate-900 sm:text-5xl lg:text-6xl"
+            >
+              Quality Healthcare,
+              <span class="text-medical-700">
+                From Wherever You Are.
+              </span>
+            </h1>
+
+            <p
+              class="mt-6 max-w-2xl text-base leading-8 text-slate-600 sm:text-lg"
+            >
+              Connect with registered medical professionals through
+              convenient online video consultations. Get professional
+              medical advice without unnecessary travel or waiting.
+            </p>
+
+            <!-- Buttons -->
+            <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+
+              <a
+                href="https://wa.me/9779812145254?text=Hello%20Tele%20Medicine%20Sewa%20Nepal%2C%20I%20would%20like%20to%20book%20a%20video%20consultation."
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center justify-center gap-2 rounded-xl bg-medical-700 px-6 py-4 text-base font-bold text-white shadow-xl shadow-medical-700/20 transition hover:bg-medical-800"
+              >
+                <i data-lucide="video" class="h-5 w-5"></i>
+                Book Video Consultation
+              </a>
+
+              <a
+                href="#how-it-works"
+                class="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-300 bg-white px-6 py-4 text-base font-bold text-slate-700 transition hover:border-medical-300 hover:bg-medical-50"
+              >
+                How It Works
+                <i data-lucide="arrow-down" class="h-4 w-4"></i>
+              </a>
+
+            </div>
+
+            <!-- Trust Points -->
+            <div
+              class="mt-8 flex flex-wrap gap-x-6 gap-y-3 text-sm text-slate-600"
+            >
+
+              <span class="flex items-center gap-2">
+                <i
+                  data-lucide="shield-check"
+                  class="h-5 w-5 text-medical-600"
+                ></i>
+                Registered Doctors
+              </span>
+
+              <span class="flex items-center gap-2">
+                <i
+                  data-lucide="video"
+                  class="h-5 w-5 text-medical-600"
+                ></i>
+                Video Consultation
+              </span>
+
+              <span class="flex items-center gap-2">
+                <i
+                  data-lucide="clock-3"
+                  class="h-5 w-5 text-medical-600"
+                ></i>
+                Convenient Access
+              </span>
+
+            </div>
+          </div>
+
+
+          <!-- Hero Card -->
+          <div class="relative mx-auto w-full max-w-lg lg:ml-auto">
+
+            <div
+              class="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-medical-200/50 blur-2xl"
+            ></div>
+
+            <div
+              class="absolute -bottom-8 -left-8 h-32 w-32 rounded-full bg-blue-200/50 blur-2xl"
+            ></div>
+
+            <div
+              class="glass relative rounded-3xl border border-white p-5 shadow-2xl sm:p-7"
+            >
+
+              <div
+                class="rounded-2xl bg-gradient-to-br from-medical-700 to-medical-900 p-6 text-white"
+              >
+
+                <div class="flex items-center justify-between">
+
+                  <div>
+                    <p class="text-sm font-medium text-medical-100">
+                      TELE MEDICINE
+                    </p>
+
+                    <p class="mt-1 text-xl font-extrabold">
+                      Your Health Matters
+                    </p>
+                  </div>
+
+                  <div
+                    class="flex h-12 w-12 items-center justify-center rounded-xl bg-white/15"
+                  >
+                    <i
+                      data-lucide="stethoscope"
+                      class="h-7 w-7"
+                    ></i>
+                  </div>
+
+                </div>
+
+                <div class="mt-8 flex items-center gap-3">
+
+                  <div
+                    class="flex h-10 w-10 items-center justify-center rounded-full bg-white text-medical-700"
+                  >
+                    <i data-lucide="check" class="h-5 w-5"></i>
+                  </div>
+
+                  <div>
+                    <p class="text-sm font-bold">
+                      Registered Medical Professionals
+                    </p>
+                    <p class="text-xs text-medical-100">
+                      Consult qualified doctors
+                    </p>
+                  </div>
+
+                </div>
+
+                <div class="mt-4 flex items-center gap-3">
+
+                  <div
+                    class="flex h-10 w-10 items-center justify-center rounded-full bg-white text-medical-700"
+                  >
+                    <i data-lucide="video" class="h-5 w-5"></i>
+                  </div>
+
+                  <div>
+                    <p class="text-sm font-bold">
+                      Online Video Consultation
+                    </p>
+                    <p class="text-xs text-medical-100">
+                      Healthcare from your location
+                    </p>
+                  </div>
+
+                </div>
+
+              </div>
+
+              <div
+                class="mt-5 rounded-2xl border border-slate-200 bg-white p-5"
+              >
+
+                <div class="flex items-center gap-4">
+
+                  <div
+                    class="flex h-12 w-12 items-center justify-center rounded-full bg-green-100 text-green-700"
+                  >
+                    <i
+                      data-lucide="message-circle"
+                      class="h-6 w-6"
+                    ></i>
+                  </div>
+
+                  <div class="min-w-0">
+
+                    <p
+                      class="text-xs font-semibold uppercase tracking-wide text-slate-500"
+                    >
+                      Book via WhatsApp
+                    </p>
+
+                    <p
+                      class="mt-1 text-lg font-extrabold text-slate-900"
+                    >
+                      +977 9812145254
+                    </p>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =======================================================
+         HOW IT WORKS
+    ======================================================== -->
+    <section
+      id="how-it-works"
+      class="bg-white py-16 sm:py-20"
+    >
+      <div
+        class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"
+      >
+
+        <div class="mx-auto max-w-2xl text-center">
+
+          <span
+            class="text-sm font-bold uppercase tracking-[0.2em] text-medical-700"
+          >
+            Simple & Convenient
+          </span>
+
+          <h2
+            class="mt-3 text-3xl font-black tracking-tight text-slate-900 sm:text-4xl"
+          >
+            How It Works
+          </h2>
+
+          <p class="mt-4 leading-7 text-slate-600">
+            Access professional online medical consultation in
+            just a few simple steps.
+          </p>
+
+        </div>
+
+
+        <div
+          class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4"
+        >
+
+          <!-- Step 1 -->
+          <div
+            class="card-hover rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
+          >
+
+            <div
+              class="flex h-12 w-12 items-center justify-center rounded-xl bg-medical-100 text-medical-700"
+            >
+              <i
+                data-lucide="message-square-text"
+                class="h-6 w-6"
+              ></i>
+            </div>
+
+            <p
+              class="mt-5 text-xs font-bold text-medical-700"
+            >
+              STEP 01
+            </p>
+
+            <h3
+              class="mt-2 text-lg font-extrabold text-slate-900"
+            >
+              Contact Us
+            </h3>
+
+            <p
+              class="mt-2 text-sm leading-6 text-slate-600"
+            >
+              Send us a WhatsApp message and tell us that
+              you would like an online consultation.
+            </p>
+
+          </div>
+
+
+          <!-- Step 2 -->
+          <div
+            class="card-hover rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
+          >
+
+            <div
+              class="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-100 text-blue-700"
+            >
+              <i
+                data-lucide="calendar-check-2"
+                class="h-6 w-6"
+              ></i>
+            </div>
+
+            <p
+              class="mt-5 text-xs font-bold text-blue-700"
+            >
+              STEP 02
+            </p>
+
+            <h3
+              class="mt-2 text-lg font-extrabold text-slate-900"
+            >
+              Choose a Doctor
+            </h3>
+
+            <p
+              class="mt-2 text-sm leading-6 text-slate-600"
+            >
+              Select a suitable doctor and consultation time
+              based on availability.
+            </p>
+
+          </div>
+
+
+          <!-- Step 3 -->
+          <div
+            class="card-hover rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
+          >
+
+            <div
+              class="flex h-12 w-12 items-center justify-center rounded-xl bg-violet-100 text-violet-700"
+            >
+              <i data-lucide="video" class="h-6 w-6"></i>
+            </div>
+
+            <p
+              class="mt-5 text-xs font-bold text-violet-700"
+            >
+              STEP 03
+            </p>
+
+            <h3
+              class="mt-2 text-lg font-extrabold text-slate-900"
+            >
+              Join Video Call
+            </h3>
+
+            <p
+              class="mt-2 text-sm leading-6 text-slate-600"
+            >
+              Join your online consultation at the scheduled
+              time using the provided meeting details.
+            </p>
+
+          </div>
+
+
+          <!-- Step 4 -->
+          <div
+            class="card-hover rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
+          >
+
+            <div
+              class="flex h-12 w-12 items-center justify-center rounded-xl bg-amber-100 text-amber-700"
+            >
+              <i
+                data-lucide="heart-pulse"
+                class="h-6 w-6"
+              ></i>
+            </div>
+
+            <p
+              class="mt-5 text-xs font-bold text-amber-700"
+            >
+              STEP 04
+            </p>
+
+            <h3
+              class="mt-2 text-lg font-extrabold text-slate-900"
+            >
+              Get Medical Advice
+            </h3>
+
+            <p
+              class="mt-2 text-sm leading-6 text-slate-600"
+            >
+              Discuss your health concerns and receive
+              appropriate medical guidance.
+            </p>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =======================================================
+         DOCTORS
+    ======================================================== -->
+    <section
+      id="doctors"
+      class="bg-slate-50 py-16 sm:py-20"
+    >
+      <div
+        class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"
+      >
+
+        <!-- Section Header -->
+        <div class="mx-auto max-w-3xl text-center">
+
+          <span
+            class="text-sm font-bold uppercase tracking-[0.2em] text-medical-700"
+          >
+            Our Medical Team
+          </span>
+
+          <h2
+            class="mt-3 text-3xl font-black tracking-tight text-slate-900 sm:text-4xl"
+          >
+            Registered Doctors
+          </h2>
+
+          <p
+            class="mt-4 leading-7 text-slate-600"
+          >
+            Consult with qualified medical professionals.
+            Doctor registration details are displayed for
+            transparency.
+          </p>
+
+        </div>
+
+
+        <!-- Doctor Cards -->
+        <div
+          class="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3"
+        >
+
+
+          <!-- =================================================
+               DOCTOR 1
+          ================================================== -->
+          <article
+            class="card-hover flex flex-col rounded-3xl border border-slate-200 bg-white p-6 shadow-sm"
+          >
+
+            <!-- Doctor Header -->
+            <div class="flex items-start gap-4">
+
+              <div
+                class="doctor-avatar flex h-20 w-20 shrink-0 items-center justify-center rounded-2xl text-medical-700"
+              >
+                <i
+                  data-lucide="user-round"
+                  class="h-10 w-10"
+                ></i>
+              </div>
+
+              <div class="min-w-0">
+
+                <h3
+                  class="text-xl font-extrabold leading-tight text-slate-900"
+                >
+                  Dr. Nihar Kumar Das
+                </h3>
+
+                <p
+                  class="mt-1 text-sm font-semibold text-medical-700"
+                >
+                  General Physician
+                </p>
+
+                <p
+                  class="text-sm text-slate-500"
+                >
+                  Emergency Medical Officer
+                </p>
+
+              </div>
+
+            </div>
+
+
+            <!-- Qualification -->
+            <div class="mt-6">
+
+              <div
+                class="flex items-start gap-3"
+              >
+                <i
+                  data-lucide="graduation-cap"
+                  class="mt-0.5 h-5 w-5 shrink-0 text-medical-600"
+                ></i>
+
+                <div>
+                  <p
+                    class="text-xs font-semibold uppercase tracking-wide text-slate-500"
+                  >
+                    Qualification
+                  </p>
+
+                  <p
+                    class="mt-1 text-sm font-semibold text-slate-800"
+                  >
+                    MBBS
+                  </p>
+
+                  <p
+                    class="text-sm text-slate-600"
+                  >
+                    Nepal Army Medical College
+                  </p>
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <!-- Details -->
+            <div
+              class="mt-5 grid grid-cols-2 gap-3"
+            >
+
+              <div
+                class="rounded-xl bg-slate-50 p-4"
+              >
+                <p
+                  class="text-xs font-semibold uppercase tracking-wide text-slate-500"
+                >
+                  NMC Number
+                </p>
+
+                <p
+                  class="mt-1 font-extrabold text-slate-900"
+                >
+                  23961
+                </p>
+              </div>
+
+              <div
+                class="rounded-xl bg-slate-50 p-4"
+              >
+                <p
+                  class="text-xs font-semibold uppercase tracking-wide text-slate-500"
+                >
+                  Experience
+                </p>
+
+                <p
+                  class="mt-1 font-extrabold text-slate-900"
+                >
+                  8 Years
+                </p>
+              </div>
+
+            </div>
+
+
+            <!-- Availability -->
+            <div
+              class="mt-4 rounded-xl border border-green-200 bg-green-50 p-4"
+            >
+
+              <div class="flex items-center gap-3">
+
+                <div
+                  class="flex h-9 w-9 items-center justify-center rounded-full bg-green-100 text-green-700"
+                >
+                  <i
+                    data-lucide="clock-3"
+                    class="h-5 w-5"
+                  ></i>
+                </div>
+
+                <div>
+                  <p
+                    class="text-xs font-semibold uppercase tracking-wide text-green-700"
+                  >
+                    Available
+                  </p>
+
+                  <p
+                    class="font-extrabold text-green-900"
+                  >
+                    4:00 PM – 9:00 PM
+                  </p>
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <!-- Booking -->
+            <a
+              href="https://wa.me/9779812145254?text=Hello%2C%20I%20would%20like%20to%20book%20a%20video%20consultation%20with%20Dr.%20Nihar%20Kumar%20Das."
+              target="_blank"
+              rel="noopener noreferrer"
+              class="mt-6 inline-flex items-center justify-center gap-2 rounded-xl bg-medical-700 px-5 py-3.5 text-sm font-bold text-white transition hover:bg-medical-800"
+            >
+              <i
+                data-lucide="video"
+                class="h-4 w-4"
+              ></i>
+              Book Consultation
+            </a>
+
+          </article>
+
+
+          <!-- =================================================
+               DOCTOR 2
+          ================================================== -->
+          <article
+            class="card-hover flex flex-col rounded-3xl border border-slate-200 bg-white p-6 shadow-sm"
+          >
+
+            <!-- Doctor Header -->
+            <div class="flex items-start gap-4">
+
+              <div
+                class="doctor-avatar flex h-20 w-20 shrink-0 items-center justify-center rounded-2xl text-blue-700"
+              >
+                <i
+                  data-lucide="user-round"
+                  class="h-10 w-10"
+                ></i>
+              </div>
+
+              <div class="min-w-0">
+
+                <h3
+                  class="text-xl font-extrabold leading-tight text-slate-900"
+                >
+                  Dr. Deepak Bhindwar
+                </h3>
+
+                <p
+                  class="mt-1 text-sm font-semibold text-blue-700"
+                >
+                  Internal Medicine
+                </p>
+
+              </div>
+
+            </div>
+
+
+            <!-- Specialty -->
+            <div
+              class="mt-6 rounded-xl bg-blue-50 p-4"
+            >
+
+              <div class="flex items-center gap-3">
+
+                <div
+                  class="flex h-10 w-10 items-center justify-center rounded-full bg-blue-100 text-blue-700"
+                >
+                  <i
+                    data-lucide="stethoscope"
+                    class="h-5 w-5"
+                  ></i>
+                </div>
+
+                <div>
+                  <p
+                    class="text-xs font-semibold uppercase tracking-wide text-blue-700"
+                  >
+                    Specialty
+                  </p>
+
+                  <p
+                    class="font-bold text-slate-900"
+                  >
+                    Internal Medicine
+                  </p>
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <!-- Details -->
+            <div
+              class="mt-4 grid grid-cols-2 gap-3"
+            >
+
+              <div
+                class="rounded-xl bg-slate-50 p-4"
+              >
+
+                <p
+                  class="text-xs font-semibold uppercase tracking-wide text-slate-500"
+                >
+                  Experience
+                </p>
+
+                <p
+                  class="mt-1 font-extrabold text-slate-900"
+                >
+                  10 Years
+                </p>
+
+              </div>
+
+              <div
+                class="rounded-xl bg-slate-50 p-4"
+              >
+
+                <p
+                  class="text-xs font-semibold uppercase tracking-wide text-slate-500"
+                >
+                  NMC
+                </p>
+
+                <p
+                  class="mt-1 font-extrabold text-slate-900"
+                >
+                  Registered
+                </p>
+
+              </div>
+
+            </div>
+
+
+            <!-- Availability -->
+            <div
+              class="mt-4 rounded-xl border border-green-200 bg-green-50 p-4"
+            >
+
+              <div class="flex items-center gap-3">
+
+                <div
+                  class="flex h-9 w-9 items-center justify-center rounded-full bg-green-100 text-green-700"
+                >
+                  <i
+                    data-lucide="clock-3"
+                    class="h-5 w-5"
+                  ></i>
+                </div>
+
+                <div>
+                  <p
+                    class="text-xs font-semibold uppercase tracking-wide text-green-700"
+                  >
+                    Available
+                  </p>
+
+                  <p
+                    class="font-extrabold text-green-900"
+                  >
+                    3:00 PM – 9:00 PM
+                  </p>
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <!-- Booking -->
+            <a
+              href="https://wa.me/9779812145254?text=Hello%2C%20I%20would%20like%20to%20book%20a%20video%20consultation%20with%20Dr.%20Deepak%20Bhindwar."
+              target="_blank"
+              rel="noopener noreferrer"
+              class="mt-6 inline-flex items-center justify-center gap-2 rounded-xl bg-medical-700 px-5 py-3.5 text-sm font-bold text-white transition hover:bg-medical-800"
+            >
+              <i
+                data-lucide="video"
+                class="h-4 w-4"
+              ></i>
+              Book Consultation
+            </a>
+
+          </article>
+
+
+          <!-- =================================================
+               DOCTOR 3
+          ================================================== -->
+          <article
+            class="card-hover flex flex-col rounded-3xl border border-slate-200 bg-white p-6 shadow-sm"
+          >
+
+            <!-- Doctor Header -->
+            <div class="flex items-start gap-4">
+
+              <div
+                class="doctor-avatar flex h-20 w-20 shrink-0 items-center justify-center rounded-2xl text-violet-700"
+              >
+                <i
+                  data-lucide="user-round"
+                  class="h-10 w-10"
+                ></i>
+              </div>
+
+              <div class="min-w-0">
+
+                <h3
+                  class="text-xl font-extrabold leading-tight text-slate-900"
+                >
+                  Dr. Rajiv Ranjan Yadav
+                </h3>
+
+                <p
+                  class="mt-1 text-sm font-semibold text-violet-700"
+                >
+                  Consultant Orthopedic Surgeon
+                </p>
+
+              </div>
+
+            </div>
+
+
+            <!-- Qualification -->
+            <div class="mt-6">
+
+              <div
+                class="flex items-start gap-3"
+              >
+
+                <i
+                  data-lucide="graduation-cap"
+                  class="mt-0.5 h-5 w-5 shrink-0 text-violet-600"
+                ></i>
+
+                <div>
+
+                  <p
+                    class="text-xs font-semibold uppercase tracking-wide text-slate-500"
+                  >
+                    Qualification
+                  </p>
+
+                  <p
+                    class="mt-1 text-sm font-semibold text-slate-800"
+                  >
+                    MBBS, MS
+                  </p>
+
+                  <p
+                    class="text-sm text-slate-600"
+                  >
+                    Orthopedic Trauma & Surgery, KU
+                  </p>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <!-- Details -->
+            <div
+              class="mt-5 grid grid-cols-2 gap-3"
+            >
+
+              <div
+                class="rounded-xl bg-slate-50 p-4"
+              >
+
+                <p
+                  class="text-xs font-semibold uppercase tracking-wide text-slate-500"
+                >
+                  NMC Number
+                </p>
+
+                <p
+                  class="mt-1 font-extrabold text-slate-900"
+                >
+                  16543
+                </p>
+
+              </div>
+
+              <div
+                class="rounded-xl bg-slate-50 p-4"
+              >
+
+                <p
+                  class="text-xs font-semibold uppercase tracking-wide text-slate-500"
+                >
+                  Experience
+                </p>
+
+                <p
+                  class="mt-1 font-extrabold text-slate-900"
+                >
+                  4 Years
+                </p>
+
+              </div>
+
+            </div>
+
+
+            <!-- Availability -->
+            <div
+              class="mt-4 rounded-xl border border-green-200 bg-green-50 p-4"
+            >
+
+              <div class="flex items-center gap-3">
+
+                <div
+                  class="flex h-9 w-9 items-center justify-center rounded-full bg-green-100 text-green-700"
+                >
+                  <i
+                    data-lucide="clock-3"
+                    class="h-5 w-5"
+                  ></i>
+                </div>
+
+                <div>
+
+                  <p
+                    class="text-xs font-semibold uppercase tracking-wide text-green-700"
+                  >
+                    Available
+                  </p>
+
+                  <p
+                    class="font-extrabold text-green-900"
+                  >
+                    3:00 PM – 9:00 PM
+                  </p>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <!-- Booking -->
+            <a
+              href="https://wa.me/9779812145254?text=Hello%2C%20I%20would%20like%20to%20book%20a%20video%20consultation%20with%20Dr.%20Rajiv%20Ranjan%20Yadav."
+              target="_blank"
+              rel="noopener noreferrer"
+              class="mt-6 inline-flex items-center justify-center gap-2 rounded-xl bg-medical-700 px-5 py-3.5 text-sm font-bold text-white transition hover:bg-medical-800"
+            >
+              <i
+                data-lucide="video"
+                class="h-4 w-4"
+              ></i>
+              Book Consultation
+            </a>
+
+          </article>
+
+        </div>
+
+
+        <!-- More Doctors -->
+        <div
+          class="mx-auto mt-8 max-w-3xl rounded-2xl border border-dashed border-medical-300 bg-medical-50 p-6 text-center"
+        >
+
+          <div
+            class="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-medical-100 text-medical-700"
+          >
+            <i
+              data-lucide="users-round"
+              class="h-6 w-6"
+            ></i>
+          </div>
+
+          <h3
+            class="mt-4 text-lg font-extrabold text-slate-900"
+          >
+            And Many More Doctors
+          </h3>
+
+          <p
+            class="mx-auto mt-2 max-w-xl text-sm leading-6 text-slate-600"
+          >
+            More registered medical professionals and specialists
+            will be added to TELE MEDICINE SEWA NEPAL. Contact us
+            through WhatsApp to enquire about currently available
+            doctors and specialties.
+          </p>
+
+          <a
+            href="https://wa.me/9779812145254?text=Hello%20Tele%20Medicine%20Sewa%20Nepal%2C%20I%20would%20like%20to%20know%20about%20other%20available%20doctors."
+            target="_blank"
+            rel="noopener noreferrer"
+            class="mt-5 inline-flex items-center justify-center gap-2 rounded-xl bg-medical-700 px-5 py-3 text-sm font-bold text-white transition hover:bg-medical-800"
+          >
+            <i
+              data-lucide="message-circle"
+              class="h-4 w-4"
+            ></i>
+            Ask About Other Doctors
+          </a>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =======================================================
+         CALL TO ACTION
+    ======================================================== -->
+    <section
+      id="contact"
+      class="bg-white py-16 sm:py-20"
+    >
+
+      <div
+        class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8"
+      >
+
+        <div
+          class="overflow-hidden rounded-3xl bg-gradient-to-br from-medical-800 to-medical-900 px-6 py-12 text-center text-white shadow-2xl sm:px-12"
+        >
+
+          <div
+            class="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-white/10"
+          >
+            <i data-lucide="video" class="h-8 w-8"></i>
+          </div>
+
+          <h2
+            class="mt-6 text-3xl font-black sm:text-4xl"
+          >
+            Need Medical Advice?
+          </h2>
+
+          <p
+            class="mx-auto mt-4 max-w-2xl leading-7 text-medical-100"
+          >
+            Contact TELE MEDICINE SEWA NEPAL through WhatsApp
+            to enquire about online video consultation and
+            available doctors.
+          </p>
+
+          <a
+            href="https://wa.me/9779812145254?text=Hello%20Tele%20Medicine%20Sewa%20Nepal%2C%20I%20would%20like%20to%20book%20a%20consultation."
+            target="_blank"
+            rel="noopener noreferrer"
+            class="mt-8 inline-flex items-center justify-center gap-3 rounded-xl bg-white px-7 py-4 font-extrabold text-medical-800 shadow-xl transition hover:bg-medical-50"
+          >
+            <i
+              data-lucide="message-circle"
+              class="h-5 w-5"
+            ></i>
+            WhatsApp: +977 9812145254
+          </a>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- =========================================================
+       EMERGENCY WARNING FOOTER
+  ========================================================== -->
+  <footer
+    class="border-t border-red-200 bg-red-50"
+  >
+
+    <div
+      class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8"
+    >
+
+      <div
+        class="flex flex-col gap-5 md:flex-row md:items-center md:justify-between"
+      >
+
+        <div class="flex items-start gap-4">
+
+          <div
+            class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-red-100 text-red-700"
+          >
+            <i
+              data-lucide="triangle-alert"
+              class="h-6 w-6"
+            ></i>
+          </div>
+
+          <div>
+
+            <h3
+              class="font-extrabold text-red-900"
+            >
+              Medical Emergency?
+            </h3>
+
+            <p
+              class="mt-1 max-w-3xl text-sm leading-6 text-red-800"
+            >
+              Telemedicine is not a substitute for emergency
+              medical care. If you or someone around you is
+              experiencing a serious or life-threatening medical
+              emergency, seek immediate emergency medical
+              assistance or go to the nearest hospital.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- Footer Bottom -->
+      <div
+        class="mt-8 border-t border-red-200 pt-5 text-center text-xs text-red-700 sm:flex sm:items-center sm:justify-between"
+      >
+
+        <p>
+          © 2026 TELE MEDICINE SEWA NEPAL. All rights reserved.
+        </p>
+
+        <p class="mt-2 sm:mt-0">
+          Online healthcare services in Nepal
+        </p>
+
+      </div>
+
+    </div>
+  </footer>
+
+
+  <!-- =========================================================
+       JAVASCRIPT
+  ========================================================== -->
+  <script>
+
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+
+    // Mobile menu functionality
+    const menuBtn = document.getElementById("menuBtn");
+    const mobileMenu = document.getElementById("mobileMenu");
+
+    menuBtn.addEventListener("click", () => {
+
+      mobileMenu.classList.toggle("hidden");
+
+      if (mobileMenu.classList.contains("hidden")) {
+
+        menuBtn.innerHTML =
+          '<i data-lucide="menu" class="h-6 w-6"></i>';
+
+      } else {
+
+        menuBtn.innerHTML =
+          '<i data-lucide="x" class="h-6 w-6"></i>';
+
+      }
+
+      lucide.createIcons();
+
+    });
+
+
+    // Close mobile menu when navigation link is clicked
+    document
+      .querySelectorAll("#mobileMenu a")
+      .forEach((link) => {
+
+        link.addEventListener("click", () => {
+
+          mobileMenu.classList.add("hidden");
+
+          menuBtn.innerHTML =
+            '<i data-lucide="menu" class="h-6 w-6"></i>';
+
+          lucide.createIcons();
+
+        });
+
+      });
+
+  </script>
+
+</body>
+</html>
